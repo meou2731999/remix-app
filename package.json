@@ -11,9 +11,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@apollo/client": "^3.10.3",
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
+    "graphql": "^16.8.1",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
