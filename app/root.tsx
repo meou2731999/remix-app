@@ -1,10 +1,30 @@
 import {
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+  ApolloProvider,
+} from "@apollo/client";
+import {
   Links,
+  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+
+// Initialize Apollo client
+const graphQLClient = new ApolloClient({
+  ssrMode: true, // Indicates that we want to use server side rendering
+  link: createHttpLink({
+    // Use createHttpLink instead of uri
+    uri: "https://countries.trevorblades.com/graphql", //Path to GraphQL schema
+    headers: {
+      "Access-Control-Allow-Origin": "*", //Cors management
+    },
+  }),
+  cache: new InMemoryCache(), // Cache management
+});
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -25,5 +45,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <ApolloProvider client={graphQLClient}>
+      <Outlet />
+      <ScrollRestoration />
+      <Scripts />
+      <LiveReload />
+    </ApolloProvider>
+  );
 }
