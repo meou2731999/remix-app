@@ -48,8 +48,6 @@ export default function App() {
   return (
     <ApolloProvider client={graphQLClient}>
       <Outlet />
-      <ScrollRestoration />
-      <Scripts />
       <LiveReload />
     </ApolloProvider>
   );
