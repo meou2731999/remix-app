@@ -22,6 +22,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
+    "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
+    "declarationMap": true /* Create sourcemaps for d.ts files. */,
+    "outDir": "./build" /* Specify an output folder for all emitted files. */,
     "paths": {
       "~/*": ["./app/*"]
     },

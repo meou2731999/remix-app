@@ -1,9 +1,7 @@
-import {
-  ApolloClient,
-  createHttpLink,
-  InMemoryCache,
-  ApolloProvider,
-} from "@apollo/client";
+import { InMemoryCache } from "@apollo/client/cache/inmemory/inMemoryCache";
+import { ApolloClient } from "@apollo/client/core/ApolloClient";
+import { createHttpLink } from "@apollo/client/link/http/createHttpLink";
+import { ApolloProvider } from "@apollo/client/react/context/ApolloProvider";
 import {
   Links,
   LiveReload,

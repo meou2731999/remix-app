@@ -7,4 +7,15 @@ installGlobals();
 
 export default defineConfig({
   plugins: [remix(), tsconfigPaths()],
+  optimizeDeps: {
+    include: ["linked-dep"],
+  },
+  build: {
+    commonjsOptions: {
+      include: [/node_modules/],
+    },
+  },
+  resolve: {
+    alias: { countries: "/Users/quanle/remix-app/app" },
+  },
 });
