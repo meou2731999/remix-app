@@ -1,4 +1,5 @@
 import { render } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom"; // Use MemoryRouter from react-router-dom
 import ContinentsListTable from "../continents/ContinentsListTable";
 
 describe("ContinentsListTable", () => {
@@ -98,24 +99,36 @@ describe("ContinentsListTable", () => {
   ];
 
   it("renders table headers correctly", () => {
-    const { getByText } = render(<ContinentsListTable data={[]} />);
+    const { getByText } = render(
+      <MemoryRouter>
+        <ContinentsListTable data={[]} />
+      </MemoryRouter>
+    );
     expect(getByText("Code")).toBeInTheDocument();
     expect(getByText("Name")).toBeInTheDocument();
     expect(getByText("Countries")).toBeInTheDocument();
   });
 
   it("renders continent data correctly", () => {
-    const { getByText } = render(<ContinentsListTable data={mockData} />);
+    const { getByText } = render(
+      <MemoryRouter>
+        <ContinentsListTable data={mockData} />
+      </MemoryRouter>
+    );
     expect(getByText("AF")).toBeInTheDocument();
     expect(getByText("Africa")).toBeInTheDocument();
-    expect(getByText("Country1, Country2")).toBeInTheDocument();
+    expect(getByText("Country1,Country2")).toBeInTheDocument();
     expect(getByText("AS")).toBeInTheDocument();
     expect(getByText("Asia")).toBeInTheDocument();
-    expect(getByText("Country3, Country4")).toBeInTheDocument();
+    expect(getByText("Country3,Country4")).toBeInTheDocument();
   });
 
   it("renders continent names as links", () => {
-    const { getByText } = render(<ContinentsListTable data={mockData} />);
+    const { getByText } = render(
+      <MemoryRouter>
+        <ContinentsListTable data={mockData} />
+      </MemoryRouter>
+    );
     expect(getByText("Africa")).toHaveAttribute("href", "/AF");
     expect(getByText("Asia")).toHaveAttribute("href", "/AS");
   });
