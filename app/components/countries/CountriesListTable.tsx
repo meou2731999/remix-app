@@ -8,10 +8,6 @@ type Prop = {
 };
 
 const CountriesListTable: React.FC<Prop> = ({ data }) => {
-  const navigate = useNavigate();
-  const handleNavigate = (code: string) => {
-    navigate("/Countries/" + code);
-  };
   return (
     <table className="border-collapse border border-gray-200 bg-white shadow-md">
       <thead>
@@ -40,7 +36,9 @@ const CountriesListTable: React.FC<Prop> = ({ data }) => {
               {country.capital}
             </td>
             <td className="border border-gray-300 px-4 py-2">
-              {country.continent.name}
+              <Link to={"/continents/" + country.continent.code}>
+                {country.continent.name}
+              </Link>
             </td>
             <td className="border border-gray-300 px-4 py-2">
               {country.currencies.join(", ")}
