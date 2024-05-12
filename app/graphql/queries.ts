@@ -81,3 +81,35 @@ export const GET_CONTINENT = gql`
     }
   }
 `;
+
+export const GET_COUNTRY = gql`
+  query GetCountry($code: ID!) {
+    country(code: $code) {
+      awsRegion
+      capital
+      code
+      continent {
+        name
+        code
+      }
+      currencies
+      currency
+      emoji
+      emojiU
+      languages {
+        name
+        native
+      }
+      name
+      native
+      phone
+      phones
+      states {
+        name
+      }
+      subdivisions {
+        name
+      }
+    }
+  }
+`;
