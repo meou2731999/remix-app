@@ -4,7 +4,6 @@ import { createHttpLink } from "@apollo/client/link/http/createHttpLink";
 import { ApolloProvider } from "@apollo/client/react/context/ApolloProvider";
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -39,11 +38,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
@@ -52,7 +47,8 @@ export default function App() {
   return (
     <ApolloProvider client={graphQLClient}>
       <Outlet />
-      <LiveReload />
+      <ScrollRestoration />
+      <Scripts />
     </ApolloProvider>
   );
 }
