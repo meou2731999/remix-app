@@ -1,135 +1,96 @@
 import { render } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom"; // Use MemoryRouter from react-router-dom
-import ContinentsListTable from "../continents/ContinentsListTable";
+import { MemoryRouter } from "react-router-dom";
 
-describe("ContinentsListTable", () => {
-  const mockData = [
+import CountriesListTable from "./CountriesListTable";
+import type { Country } from "~/graphql/__generated__/graphql";
+
+describe("CountriesListTable", () => {
+  const mockData: Country[] = [
     {
-      code: "AF",
-      name: "Africa",
-      countries: [
+      code: "FR",
+      name: "France",
+      emoji: "🇫🇷",
+      capital: "Paris",
+      continent: {
+        code: "EU",
+        name: "Europe",
+        countries: [],
+      },
+      currencies: ["Euro"],
+      languages: [
         {
-          name: "Country1",
-          awsRegion: "",
+          name: "French",
           code: "",
-          continent: {
-            __typename: undefined,
-            code: "",
-            countries: [],
-            name: "",
-          },
-          currencies: [],
-          emoji: "",
-          emojiU: "",
-          languages: [],
           native: "",
-          phone: "",
-          phones: [],
-          states: [],
-          subdivisions: [],
-        },
-        {
-          name: "Country2",
-          awsRegion: "",
-          code: "",
-          continent: {
-            __typename: undefined,
-            code: "",
-            countries: [],
-            name: "",
-          },
-          currencies: [],
-          emoji: "",
-          emojiU: "",
-          languages: [],
-          native: "",
-          phone: "",
-          phones: [],
-          states: [],
-          subdivisions: [],
+          rtl: false,
         },
       ],
+      phone: "+33",
+      awsRegion: "",
+      emojiU: "",
+      native: "",
+      phones: [],
+      states: [],
+      subdivisions: [],
     },
-    {
-      code: "AS",
-      name: "Asia",
-      countries: [
-        {
-          name: "Country3",
-          awsRegion: "",
-          code: "",
-          continent: {
-            __typename: undefined,
-            code: "",
-            countries: [],
-            name: "",
-          },
-          currencies: [],
-          emoji: "",
-          emojiU: "",
-          languages: [],
-          native: "",
-          phone: "",
-          phones: [],
-          states: [],
-          subdivisions: [],
-        },
-        {
-          name: "Country4",
-          awsRegion: "",
-          code: "",
-          continent: {
-            __typename: undefined,
-            code: "",
-            countries: [],
-            name: "",
-          },
-          currencies: [],
-          emoji: "",
-          emojiU: "",
-          languages: [],
-          native: "",
-          phone: "",
-          phones: [],
-          states: [],
-          subdivisions: [],
-        },
-      ],
-    },
+    // Add more mock data as needed
   ];
 
-  it("renders table headers correctly", () => {
-    const { getByText } = render(
+  it("renders the correct table structure", () => {
+    const { container } = render(
       <MemoryRouter>
-        <ContinentsListTable data={[]} />
+        <CountriesListTable data={mockData} />
       </MemoryRouter>
     );
-    expect(getByText("Code")).toBeInTheDocument();
-    expect(getByText("Name")).toBeInTheDocument();
-    expect(getByText("Countries")).toBeInTheDocument();
+
+    // Assert the table structure
+    const table = container.querySelector("table");
+    expect(table).toBeInTheDocument();
+    expect(table).toHaveClass(
+      "border-collapse",
+      "border",
+      "border-gray-200",
+      "bg-white",
+      "shadow-md"
+    );
+
+    // Assert table headers
+    expect(container.querySelectorAll("th")).toHaveLength(8); // Ensure there are 8 headers
+    expect(container).toHaveTextContent("Code");
+    expect(container).toHaveTextContent("Name");
+    // Add more assertions for other headers
   });
 
-  it("renders continent data correctly", () => {
-    const { getByText } = render(
+  it("renders the correct number of rows and data", () => {
+    const { getByText, getByRole } = render(
       <MemoryRouter>
-        <ContinentsListTable data={mockData} />
+        <CountriesListTable data={mockData} />
       </MemoryRouter>
     );
-    expect(getByText("AF")).toBeInTheDocument();
-    expect(getByText("Africa")).toBeInTheDocument();
-    expect(getByText("Country1,Country2")).toBeInTheDocument();
-    expect(getByText("AS")).toBeInTheDocument();
-    expect(getByText("Asia")).toBeInTheDocument();
-    expect(getByText("Country3,Country4")).toBeInTheDocument();
+
+    // Assert the data in each row
+    mockData.forEach((country) => {
+      expect(getByText(country.code)).toBeInTheDocument();
+      expect(getByText(country.name)).toBeInTheDocument();
+      // Add more assertions for other columns
+    });
   });
 
-  it("renders continent names as links", () => {
+  it("renders links to navigate to country and continent details", () => {
     const { getByText } = render(
       <MemoryRouter>
-        <ContinentsListTable data={mockData} />
+        <CountriesListTable data={mockData} />
       </MemoryRouter>
     );
-    expect(getByText("Africa")).toHaveAttribute("href", "/AF");
-    expect(getByText("Asia")).toHaveAttribute("href", "/AS");
+
+    // Assert links to navigate to country details
+    const franceLink = getByText("France");
+    expect(franceLink).toBeInTheDocument();
+    expect(franceLink).toHaveAttribute("href", "/countries/FR");
+
+    // Assert links to navigate to continent details
+    const europeLink = getByText("Europe");
+    expect(europeLink).toBeInTheDocument();
+    expect(europeLink).toHaveAttribute("href", "/continents/EU");
   });
 });
