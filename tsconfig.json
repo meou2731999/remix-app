@@ -5,16 +5,22 @@
     "**/.server/**/*.ts",
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
-    "**/.client/**/*.tsx"
+    "**/.client/**/*.tsx",
+    "nodeModulesTransformer.js"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["@remix-run/node", "vite/client"],
+    "types": [
+      "@remix-run/node",
+      "vite/client",
+      "jest",
+      "@testing-library/jest-dom"
+    ],
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "commonjs",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "target": "ES2022",
     "strict": true,

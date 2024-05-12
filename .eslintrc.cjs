@@ -22,7 +22,17 @@ module.exports = {
   ignorePatterns: ["!**/.server", "!**/.client"],
 
   // Base config
-  extends: ["eslint:recommended"],
+  extends: ["eslint:recommended", "airbnb", "plugin:react/recommended"],
+  plugin: ["jsx-a11y/recommended", "@typescript-eslint", "react"],
+  parser: "@typescript-eslint/parser",
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
+  rules: {
+    // Add any additional rules or overrides as needed
+  },
 
   overrides: [
     // React
