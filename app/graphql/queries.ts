@@ -59,6 +59,10 @@ export const GET_CONTINENT = gql`
         currency
         emoji
         emojiU
+        continent {
+          name
+          code
+        }
         languages {
           name
           native

@@ -1,5 +1,5 @@
 import React from "react";
-import { Country } from "~/graphql/__generated__/graphql";
+import type { Country } from "~/graphql/__generated__/graphql";
 
 type Prop = {
   data: Country[];
@@ -23,7 +23,7 @@ const CountriesListTable: React.FC<Prop> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((country: Country) => (
+          {data.map((country) => (
             <tr key={country.code}>
               <td className="border border-gray-300 px-4 py-2">
                 {country.code}
@@ -44,7 +44,7 @@ const CountriesListTable: React.FC<Prop> = ({ data }) => {
                 {country.currencies.join(", ")}
               </td>
               <td className="border border-gray-300 px-4 py-2">
-                {country.languages.map((item) => item.name).join(", ")}
+                {country.languages.map((item) => item?.name).join(", ")}
               </td>
               <td className="border border-gray-300 px-4 py-2">
                 {country.phone}
