@@ -32,3 +32,48 @@ export const GET_ALL_COUNTRIES = gql`
     }
   }
 `;
+
+export const GET_ALL_CONTINENTS = gql`
+  query GetAllContinents {
+    continents {
+      code
+      countries {
+        name
+        code
+      }
+      name
+    }
+  }
+`;
+
+export const GET_CONTINENT = gql`
+  query GetContinent($code: ID!) {
+    continent(code: $code) {
+      code
+      name
+      countries {
+        awsRegion
+        capital
+        code
+        currencies
+        currency
+        emoji
+        emojiU
+        languages {
+          name
+          native
+        }
+        name
+        native
+        phone
+        phones
+        states {
+          name
+        }
+        subdivisions {
+          name
+        }
+      }
+    }
+  }
+`;
