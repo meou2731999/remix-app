@@ -1,14 +1,36 @@
-# Welcome to Remix + Vite!
+# Welcome to Remix Project!
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
+📖 See the [Remix docs](https://remix.run/docs) for details on supported features.
+
 
 ## Development
+
+Run generate GraphQL types:
+
+```shellscript
+npm run generate-types
+```
 
 Run the Vite dev server:
 
 ```shellscript
 npm run dev
 ```
+
+## Testing
+
+Run test:
+
+```shellscript
+npm test
+```
+
+Check test coverage:
+
+```shellscript
+npm run test:coverage 
+```
+
 
 ## Deployment
 
