@@ -62,6 +62,7 @@ describe("Index", () => {
     );
 
     await waitFor(() => {
+      expect(getByText("Continents List Page")).toBeInTheDocument();
       expect(getByText("Asia")).toBeInTheDocument();
       expect(getByText("Europe")).toBeInTheDocument();
     });

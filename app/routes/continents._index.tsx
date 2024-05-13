@@ -14,5 +14,12 @@ export default function Index() {
   const { loading, error, data } = useQuery(GET_ALL_CONTINENTS);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  return <ContinentsListTable data={data.continents} />;
+  return (
+    <div className="p-4">
+      <div className="text-lg font-bold">Continents List Page</div>
+      <div className="mt-4">
+        <ContinentsListTable data={data.continents} />
+      </div>
+    </div>
+  );
 }
