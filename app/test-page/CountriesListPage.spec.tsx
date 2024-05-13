@@ -2,7 +2,7 @@ import { render, waitFor } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import { GET_ALL_COUNTRIES } from "~/graphql/queries";
 import { MemoryRouter } from "react-router-dom"; // Use MemoryRouter from react-router-dom
-import Index from "../routes/countries._index";
+import Index, { meta } from "../routes/countries._index";
 import { mockDataContries } from "~/components/countries/CountriesListTable.spec";
 
 describe("Index", () => {
@@ -18,6 +18,30 @@ describe("Index", () => {
       },
     },
   ];
+
+  it("returns correct metadata", () => {
+    const metaData = meta({
+      data: undefined,
+      params: {},
+      location: {
+        state: undefined,
+        key: "",
+        pathname: "",
+        search: "",
+        hash: "",
+      },
+      matches: [],
+    });
+
+    // Assert your expectations
+    expect(metaData).toEqual([
+      { title: "Countries List Page" },
+      {
+        name: "description",
+        content: "Query countries with remix and graphQL",
+      },
+    ]);
+  });
 
   it("renders loading state while fetching data", async () => {
     const { getByText } = render(
@@ -62,6 +86,7 @@ describe("Index", () => {
     );
 
     await waitFor(() => {
+      expect(getByText("Countries List Page")).toBeInTheDocument();
       mockDataContries.forEach(({ name }) => {
         expect(getByText(name)).toBeInTheDocument();
       });
