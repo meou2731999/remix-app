@@ -1,6 +1,6 @@
 import { render, waitFor } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
-import Index from "../routes/continents._index";
+import Index, { meta } from "../routes/continents._index";
 import { GET_ALL_CONTINENTS } from "~/graphql/queries";
 import { mockDatContinents } from "~/components/continents/ContinentsListTable.spec";
 import { MemoryRouter } from "react-router-dom"; // Use MemoryRouter from react-router-dom
@@ -18,6 +18,30 @@ describe("Index", () => {
       },
     },
   ];
+
+  it("returns correct metadata", () => {
+    const metaData = meta({
+      data: undefined,
+      params: {},
+      location: {
+        state: undefined,
+        key: "",
+        pathname: "",
+        search: "",
+        hash: "",
+      },
+      matches: [],
+    });
+
+    // Assert your expectations
+    expect(metaData).toEqual([
+      { title: "Continents List Page" },
+      {
+        name: "description",
+        content: "Query continents with remix and graphQL",
+      },
+    ]);
+  });
 
   it("renders loading state while fetching data", async () => {
     const { getByText } = render(
