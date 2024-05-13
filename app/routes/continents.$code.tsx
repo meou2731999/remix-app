@@ -38,7 +38,7 @@ export default function Index() {
 
   return (
     <div className="p-4">
-      <div className="text-lg font-bold">Continents Detail Page</div>
+      <div className="text-lg font-bold">Continent Detail Page</div>
       <div className="mt-4">Continent name: {continent.name}</div>
       <div className="mt-4">Continent code: {continent.code}</div>
       <div className="mt-4">
