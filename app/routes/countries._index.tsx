@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client/react/hooks/useQuery";
 import type { MetaFunction } from "@remix-run/node";
 import CountriesListTable from "~/components/countries/CountriesListTable";
-import type { Country } from "~/graphql/__generated__/graphql";
 import { GET_ALL_COUNTRIES } from "~/graphql/queries";
 
 export const meta: MetaFunction = () => {
