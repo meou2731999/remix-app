@@ -1,4 +1,4 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ContinentsListTable from "./ContinentsListTable";
 import { MemoryRouter } from "react-router-dom"; // Use MemoryRouter from react-router-dom
 import type { Continent } from "~/graphql/__generated__/graphql";

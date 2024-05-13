@@ -1,4 +1,3 @@
-import { useNavigate } from "@remix-run/react";
 import { Link } from "@remix-run/react/dist/components";
 import React from "react";
 import type { Country } from "~/graphql/__generated__/graphql";
