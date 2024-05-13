@@ -7,48 +7,43 @@ type Prop = {
   data: Country[];
 };
 
+const tableHeaderStyle = "border border-gray-300 px-4 py-2 bg-gray-100";
+const tableBodyStyle = "border border-gray-300 px-4 py-2";
+
 const CountriesListTable: React.FC<Prop> = ({ data }) => {
   return (
     <table className="border-collapse border border-gray-200 bg-white shadow-md">
       <thead>
         <tr>
-          <th className="border border-gray-300 px-4 py-2">Code</th>
-          <th className="border border-gray-300 px-4 py-2">Name</th>
-          <th className="border border-gray-300 px-4 py-2">Flag</th>
-          <th className="border border-gray-300 px-4 py-2">Capital</th>
-          <th className="border border-gray-300 px-4 py-2">Continent</th>
-          <th className="border border-gray-300 px-4 py-2">Currencies</th>
-          <th className="border border-gray-300 px-4 py-2">Languages</th>
-          <th className="border border-gray-300 px-4 py-2">Phone</th>
+          <th className={tableHeaderStyle}>Code</th>
+          <th className={tableHeaderStyle}>Name</th>
+          <th className={tableHeaderStyle}>Flag</th>
+          <th className={tableHeaderStyle}>Capital</th>
+          <th className={tableHeaderStyle}>Continent</th>
+          <th className={tableHeaderStyle}>Currencies</th>
+          <th className={tableHeaderStyle}>Languages</th>
+          <th className={tableHeaderStyle}>Phone</th>
         </tr>
       </thead>
       <tbody>
         {data.map((country) => (
           <tr key={country.code}>
-            <td className="border border-gray-300 px-4 py-2">{country.code}</td>
-            <td className="border border-gray-300 px-4 py-2">
+            <td className={tableBodyStyle}>{country.code}</td>
+            <td className={tableBodyStyle}>
               <Link to={"/countries/" + country.code}>{country.name}</Link>
             </td>
-            <td className="border border-gray-300 px-4 py-2">
-              {country.emoji}
-            </td>
-            <td className="border border-gray-300 px-4 py-2">
-              {country.capital}
-            </td>
-            <td className="border border-gray-300 px-4 py-2">
+            <td className={tableBodyStyle}>{country.emoji}</td>
+            <td className={tableBodyStyle}>{country.capital}</td>
+            <td className={tableBodyStyle}>
               <Link to={"/continents/" + country.continent.code}>
                 {country.continent.name}
               </Link>
             </td>
-            <td className="border border-gray-300 px-4 py-2">
-              {country.currencies.join(", ")}
-            </td>
-            <td className="border border-gray-300 px-4 py-2">
+            <td className={tableBodyStyle}>{country.currencies.join(", ")}</td>
+            <td className={tableBodyStyle}>
               {country.languages.map((item) => item?.name).join(", ")}
             </td>
-            <td className="border border-gray-300 px-4 py-2">
-              {country.phone}
-            </td>
+            <td className={tableBodyStyle}>{country.phone}</td>
           </tr>
         ))}
       </tbody>
