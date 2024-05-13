@@ -24,7 +24,7 @@ export const mockDataContries: Country[] = [
         rtl: false,
       },
     ],
-    phone: "+33",
+    phone: "33",
     awsRegion: "",
     emojiU: "",
     native: "",

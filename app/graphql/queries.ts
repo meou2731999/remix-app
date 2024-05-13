@@ -91,7 +91,6 @@ export const GET_COUNTRY = gql`
         code
       }
       currencies
-      currency
       emoji
       emojiU
       languages {

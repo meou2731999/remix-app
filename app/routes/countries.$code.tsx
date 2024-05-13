@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client/react/hooks/useQuery";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import CountriesListTable from "~/components/countries/CountriesListTable";
+import { Link, useLoaderData } from "@remix-run/react";
 import type { Country } from "~/graphql/__generated__/graphql";
 import { GET_COUNTRY } from "~/graphql/queries";
 
@@ -34,11 +33,35 @@ export default function Index() {
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
+
+  const country: Country = data.country;
+
   return (
     <div className="p-4">
-      <div>Country name: {data.country.name}</div>
-      <div className="pt-4">Country code: {data.country.code}</div>
-      <div className="pt-4">Country flag: {data.country.emoji}</div>
+      <div className="text-lg font-bold">Country Detail Page</div>
+      <div className="mt-4">Country name: {country.name}</div>
+      <div className="mt-4">Country code: {country.code}</div>
+      <div className="mt-4">Country flag: {country.emoji}</div>
+      <div className="mt-4">Country capital: {country.capital}</div>
+      <div className="mt-4">
+        Country continent:{" "}
+        <Link
+          className="hover:text-blue-500"
+          to={"/continents/" + country.continent.code}
+        >
+          {country.continent.name}
+        </Link>
+      </div>
+      <div className="mt-4">
+        Country currencies: {country.currencies.join(", ")}
+      </div>
+      <div className="mt-4">
+        Country languages:{" "}
+        {country.languages
+          .map((item: { name: string }) => item?.name)
+          .join(", ")}
+      </div>
+      <div className="mt-4">Country phone: +{country.phone}</div>
     </div>
   );
 }
