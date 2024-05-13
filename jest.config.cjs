@@ -13,7 +13,7 @@ module.exports = {
     transformIgnorePatterns: [
         `/node_modules/(?!${esModules})`
     ],
-    "setupFilesAfterEnv": ["@testing-library/jest-dom"],
+    "setupFilesAfterEnv": ['<rootDir>/jestSetup.js'],
     moduleNameMapper: {
         '^~/(.*)$': '<rootDir>/app/$1'
     },
