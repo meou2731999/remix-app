@@ -25,7 +25,9 @@ const ContinentsListTable: React.FC<Prop> = ({ data }) => {
           <tr key={continent.code}>
             <td className={tableBodyStyle}>{continent.code}</td>
             <td className={tableBodyStyle}>
-              <Link to={continent.code}> {continent.name}</Link>
+              <Link className="hover:text-blue-500" to={continent.code}>
+                {continent.name}
+              </Link>
             </td>
             <td className={tableBodyStyle}>
               {continent.countries.map((item) => item.name).join(",")}

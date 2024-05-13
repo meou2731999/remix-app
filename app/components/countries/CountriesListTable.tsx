@@ -29,12 +29,20 @@ const CountriesListTable: React.FC<Prop> = ({ data }) => {
           <tr key={country.code}>
             <td className={tableBodyStyle}>{country.code}</td>
             <td className={tableBodyStyle}>
-              <Link to={"/countries/" + country.code}>{country.name}</Link>
+              <Link
+                className="hover:text-blue-500"
+                to={"/countries/" + country.code}
+              >
+                {country.name}
+              </Link>
             </td>
             <td className={tableBodyStyle}>{country.emoji}</td>
             <td className={tableBodyStyle}>{country.capital}</td>
             <td className={tableBodyStyle}>
-              <Link to={"/continents/" + country.continent.code}>
+              <Link
+                className="hover:text-blue-500"
+                to={"/continents/" + country.continent.code}
+              >
                 {country.continent.name}
               </Link>
             </td>
