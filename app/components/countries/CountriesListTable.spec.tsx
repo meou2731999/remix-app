@@ -4,42 +4,42 @@ import { MemoryRouter } from "react-router-dom";
 import CountriesListTable from "./CountriesListTable";
 import type { Country } from "~/graphql/__generated__/graphql";
 
-describe("CountriesListTable", () => {
-  const mockData: Country[] = [
-    {
-      code: "FR",
-      name: "France",
-      emoji: "🇫🇷",
-      capital: "Paris",
-      continent: {
-        code: "EU",
-        name: "Europe",
-        countries: [],
-      },
-      currencies: ["Euro"],
-      languages: [
-        {
-          name: "French",
-          code: "",
-          native: "",
-          rtl: false,
-        },
-      ],
-      phone: "+33",
-      awsRegion: "",
-      emojiU: "",
-      native: "",
-      phones: [],
-      states: [],
-      subdivisions: [],
+export const mockDataContries: Country[] = [
+  {
+    code: "FR",
+    name: "France",
+    emoji: "🇫🇷",
+    capital: "Paris",
+    continent: {
+      code: "EU",
+      name: "Europe",
+      countries: [],
     },
-    // Add more mock data as needed
-  ];
+    currencies: ["Euro"],
+    languages: [
+      {
+        name: "French",
+        code: "",
+        native: "",
+        rtl: false,
+      },
+    ],
+    phone: "+33",
+    awsRegion: "",
+    emojiU: "",
+    native: "",
+    phones: [],
+    states: [],
+    subdivisions: [],
+  },
+  // Add more mock data as needed
+];
 
+describe("CountriesListTable", () => {
   it("renders the correct table structure", () => {
     const { container } = render(
       <MemoryRouter>
-        <CountriesListTable data={mockData} />
+        <CountriesListTable data={mockDataContries} />
       </MemoryRouter>
     );
 
@@ -64,12 +64,12 @@ describe("CountriesListTable", () => {
   it("renders the correct number of rows and data", () => {
     const { getByText, getByRole } = render(
       <MemoryRouter>
-        <CountriesListTable data={mockData} />
+        <CountriesListTable data={mockDataContries} />
       </MemoryRouter>
     );
 
     // Assert the data in each row
-    mockData.forEach((country) => {
+    mockDataContries.forEach((country) => {
       expect(getByText(country.code)).toBeInTheDocument();
       expect(getByText(country.name)).toBeInTheDocument();
       // Add more assertions for other columns
@@ -79,7 +79,7 @@ describe("CountriesListTable", () => {
   it("renders links to navigate to country and continent details", () => {
     const { getByText } = render(
       <MemoryRouter>
-        <CountriesListTable data={mockData} />
+        <CountriesListTable data={mockDataContries} />
       </MemoryRouter>
     );
 

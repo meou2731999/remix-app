@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom"; // Use MemoryRouter from react-
 import type { Continent } from "~/graphql/__generated__/graphql";
 
 // Mock data
-const mockData: Continent[] = [
+export const mockDatContinents: Continent[] = [
   {
     code: "EU",
     name: "Europe",
@@ -103,7 +103,7 @@ describe("ContinentsListTable", () => {
   it("Renders table headers and data correctly", async () => {
     const { getByText } = render(
       <MemoryRouter>
-        <ContinentsListTable data={mockData} />
+        <ContinentsListTable data={mockDatContinents} />
       </MemoryRouter>
     );
 
@@ -113,7 +113,7 @@ describe("ContinentsListTable", () => {
     expect(getByText("Countries")).toBeInTheDocument();
 
     // Check if continent data is rendered
-    mockData.forEach(async (continent) => {
+    mockDatContinents.forEach(async (continent) => {
       expect(getByText(continent.code)).toBeInTheDocument();
       expect(getByText(continent.name)).toBeInTheDocument();
       expect(
