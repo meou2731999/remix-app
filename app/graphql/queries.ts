@@ -12,7 +12,6 @@ export const GET_ALL_COUNTRIES = gql`
         code
       }
       currencies
-      currency
       emoji
       emojiU
       languages {
@@ -56,7 +55,6 @@ export const GET_CONTINENT = gql`
         capital
         code
         currencies
-        currency
         emoji
         emojiU
         continent {
