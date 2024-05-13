@@ -7,10 +7,10 @@ import { GET_COUNTRY } from "~/graphql/queries";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Country" },
+    { title: "Country Detail Page" },
     {
       name: "description",
-      content: "Query Country detail with remix and graphQL",
+      content: "Query country detail with remix and graphQL",
     },
   ];
 };

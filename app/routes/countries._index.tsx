@@ -5,7 +5,7 @@ import { GET_ALL_COUNTRIES } from "~/graphql/queries";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Countries" },
+    { title: "Countries List Page" },
     { name: "description", content: "Query countries with remix and graphQL" },
   ];
 };
@@ -17,7 +17,10 @@ export default function Index() {
 
   return (
     <div className="p-4">
-      <CountriesListTable data={data.countries} />
+      <div className="text-lg font-bold">Continents Detail Page</div>
+      <div className="mt-4">
+        <CountriesListTable data={data.countries} />
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { GET_ALL_CONTINENTS } from "~/graphql/queries";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Continents" },
+    { title: "Continents List Page" },
     { name: "description", content: "Query continents with remix and graphQL" },
   ];
 };

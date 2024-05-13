@@ -2,12 +2,16 @@ import { useQuery } from "@apollo/client/react/hooks/useQuery";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import CountriesListTable from "~/components/countries/CountriesListTable";
+import type { Continent } from "~/graphql/__generated__/graphql";
 import { GET_CONTINENT } from "~/graphql/queries";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Continents" },
-    { name: "description", content: "Query continents with remix and graphQL" },
+    { title: "Continent Detail Page" },
+    {
+      name: "description",
+      content: "Query continent detail with remix and graphQL",
+    },
   ];
 };
 
@@ -30,11 +34,17 @@ export default function Index() {
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
+  const continent: Continent = data.continent;
+
   return (
     <div className="p-4">
-      <div>Continent name: {data.continent.name}</div>
-      <div className="pt-4">Continent code: {data.continent.code}</div>
-      <CountriesListTable data={data.continent.countries} />
+      <div className="text-lg font-bold">Continents Detail Page</div>
+      <div className="mt-4">Continent name: {continent.name}</div>
+      <div className="mt-4">Continent code: {continent.code}</div>
+      <div className="mt-4">
+        <div className="text-lg font-bold">Countries List</div>
+        <CountriesListTable data={continent.countries} />
+      </div>
     </div>
   );
 }
