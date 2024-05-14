@@ -12,7 +12,7 @@ Key Features:
 
 - **Countries List Page**: Shows a list of countries within a continent, enabling users to explore individual countries further.
 
-- **Country Detail Page**: Offers comprehensive details about a specific country, including its name, capital, population, and more.
+- **Country Detail Page**: Offers comprehensive details about a specific country, including its name, capital and more.
 
 - **Seamless Routing**: Implements client-side routing for smooth navigation between pages, ensuring a seamless browsing experience.
 
