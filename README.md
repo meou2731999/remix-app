@@ -91,3 +91,9 @@ Make sure to deploy the output of `npm run build`
 
 - `build/server`
 - `build/client`
+
+## References
+- [https://remix.run/](https://remix.run/)
+- [https://carbonable.medium.com/build-a-remix-app-with-apollo-and-graphql-7a1d10395224
+](https://carbonable.medium.com/build-a-remix-app-with-apollo-and-graphql-7a1d10395224
+)
