@@ -27,28 +27,13 @@ Testing: Includes comprehensive testing suites to ensure the reliability and sta
 - **Babel**: A JavaScript compiler that transforms modern JavaScript code into backward-compatible versions.
 - **Tailwind CSS**: A utility-first CSS framework for building custom designs quickly.
 
-## Development
+## Getting Started:
 
-### Generate GraphQL Types
-
-Generate TypeScript types based on your GraphQL schema:
-
-```bash
-npm run generate-types
-
-## Development
-
-Run generate GraphQL types:
-
-```shellscript
-npm run generate-types
-```
-
-Run the Vite dev server:
-
-```shellscript
-npm run dev
-```
+Clone the repository: git clone https://github.com/meou2731999/remix-app.git
+Install dependencies: npm install
+Generate TypeScript types based on your GraphQL schema: npm run generate-types
+Start the development server: npm run dev
+Open http://localhost:5173/ in your web browser to explore the application.
 
 ## Testing
 
