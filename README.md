@@ -4,19 +4,19 @@ Remix-App is a comprehensive web application built with Remix.js, featuring a mu
 
 Key Features:
 
-Home Page: The landing page of the application welcomes users and provides an overview of the available features.
+- **Home Page**: The landing page of the application welcomes users and provides an overview of the available features.
 
-Continents List Page: Displays a list of continents, allowing users to browse through different regions of the world.
+- **Continents List Page**: Displays a list of continents, allowing users to browse through different regions of the world.
 
-Continent Detail Page: Provides detailed information about a selected continent, including its name, description, and associated countries.
+- **Continent Detail Page**: Provides detailed information about a selected continent, including its name, description, and associated countries.
 
-Countries List Page: Shows a list of countries within a continent, enabling users to explore individual countries further.
+- **Countries List Page**: Shows a list of countries within a continent, enabling users to explore individual countries further.
 
-Country Detail Page: Offers comprehensive details about a specific country, including its name, capital, population, and more.
+- **Country Detail Page**: Offers comprehensive details about a specific country, including its name, capital, population, and more.
 
-Seamless Routing: Implements client-side routing for smooth navigation between pages, ensuring a seamless browsing experience.
+- **Seamless Routing**: Implements client-side routing for smooth navigation between pages, ensuring a seamless browsing experience.
 
-Testing: Includes comprehensive testing suites to ensure the reliability and stability of the application. Testing covers unit tests, integration tests, and end-to-end tests to verify functionality across all components and pages.
+- **Testing**: Includes comprehensive testing suites to ensure the reliability and stability of the application. Testing covers unit tests, integration tests, and end-to-end tests to verify functionality across all components and pages.
 
 
 ## Technologies Used
