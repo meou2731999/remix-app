@@ -29,11 +29,28 @@ Testing: Includes comprehensive testing suites to ensure the reliability and sta
 
 ## Getting Started:
 
-Clone the repository: git clone https://github.com/meou2731999/remix-app.git
-Install dependencies: npm install
-Generate TypeScript types based on your GraphQL schema: npm run generate-types
-Start the development server: npm run dev
-Open http://localhost:5173/ in your web browser to explore the application.
+Clone the repository: 
+```shellscript
+git clone https://github.com/meou2731999/remix-app.git
+```
+
+Install dependencies:
+```shellscript
+npm install
+```
+
+Generate TypeScript types based on your GraphQL schema: 
+```shellscript
+npm run generate-types
+```
+
+Start the development server: 
+
+```shellscript
+npm run dev
+```
+
+Open [http://localhost:5173/](http://localhost:5173/) in your web browser to explore the application.
 
 ## Testing
 
